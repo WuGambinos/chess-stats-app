@@ -10,7 +10,7 @@ const Button = () => {
         
         chessAPI.getPlayerStats('mualphatheta')
         .then(function(response) {
-            console.log('Player Stats', response.body.chess_daily);
+            console.log('Player Stats', response.body);
         }, function(err) {
             console.error(error);
         });
@@ -29,9 +29,9 @@ const Button = () => {
 
 const styles = StyleSheet.create( {
     button: {
-        width: 150,
-        height: 25,
-        borderRadius: 20,
+        width: 276,
+        height: 71,
+        borderRadius: 80,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'green'
