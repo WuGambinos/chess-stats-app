@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import ChessWebAPI from "chess-web-api/src/chess-web-api";
 
-const Button = () => {
+const Button = (props) => {
 
     const showData = () => {
         var chessAPI = new ChessWebAPI();
@@ -18,7 +18,7 @@ const Button = () => {
 
     return (
         <TouchableOpacity style={styles.button}
-        onPress={() => showData()}>
+        onPress={props.onPress}>
             <Text style={styles.text}>
                 Show Stats
             </Text>

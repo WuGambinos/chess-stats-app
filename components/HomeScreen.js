@@ -11,21 +11,28 @@ const HomeScreen = ({navigation}) => {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
             <View>
                 <TextInput
                 placeholder="Enter Chess.com name"
                 onChangeText={newText => setText(newText)}
-                onSubmitEditing={() => showText()}>        
-                </TextInput>
+                onSubmitEditing={() => showText()} />
             </View>
 
             <View>
-                <Button/>
+                <Button onPress={() => navigation.navigate('Data')}/>
             </View>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
+  });
 
 
 export default HomeScreen;
