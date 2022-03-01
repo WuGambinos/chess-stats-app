@@ -25,7 +25,7 @@ const Button = () => {
         </TouchableOpacity>
     )
 
-}
+};
 
 const styles = StyleSheet.create( {
     button: {
@@ -43,5 +43,6 @@ const styles = StyleSheet.create( {
         fontSize: 20,
     }
 
-})
+});
+
 export default Button;

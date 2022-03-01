@@ -3,20 +3,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './components/HomeScreen';
 import Button from './components/Button';
 import StatsScreen from './components/StatsScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    /*<View style={styles.container}>
-      <HomeScreen>  
-      </HomeScreen>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HomeScreen">
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+        <Stack.Screen name="Data" component={StatsScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+      /*<View style={styles.container}>
+        <HomeScreen>  
+        </HomeScreen>
 
-      <Button>
+        <Button>
+        </Button>
+      </View>*/
 
-      </Button>
-    </View>*/
 
-    <StatsScreen></StatsScreen>
+    //<StatsScreen></StatsScreen>
   );
-}
+};
 
 const styles = StyleSheet.create({
 
