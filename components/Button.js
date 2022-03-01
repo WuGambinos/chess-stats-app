@@ -1,26 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import ChessWebAPI from "chess-web-api/src/chess-web-api";
+
 
 const Button = (props) => {
 
-    const showData = () => {
-        var chessAPI = new ChessWebAPI();
-        
-        chessAPI.getPlayerStats('mualphatheta')
-        .then(function(response) {
-            console.log('Player Stats', response.body);
-        }, function(err) {
-            console.error(error);
-        });
-    };
+
 
     return (
         <TouchableOpacity style={styles.button}
         onPress={props.onPress}>
             <Text style={styles.text}>
-                Show Stats
+                {props.text}
             </Text>
         </TouchableOpacity>
     )

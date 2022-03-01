@@ -2,12 +2,28 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import Button from './Button'
 import React, {useState} from 'react';
+import ChessWebAPI from "chess-web-api/src/chess-web-api";
 
 const HomeScreen = ({navigation}) => {
 
-    const [text, setText] = useState('');
-    const showText = () => {
-        console.log(text);
+    const [username, setUsername] = useState('');
+
+    let blitz = "";
+    let bullet = "";
+    let rapid = "";
+    let daily = "";
+
+    const showData = () => {
+        var chessAPI = new ChessWebAPI();
+        
+        chessAPI.getPlayerStats(username)
+        .then(function(response) {
+            console.log('Player Stats', response.body);
+            blitz = response.body.chess_blitz.last.rating;
+            console.log(blitz);
+        }, function(err) {
+            console.error(error);
+        });
     };
 
     return (
@@ -15,12 +31,12 @@ const HomeScreen = ({navigation}) => {
             <View>
                 <TextInput
                 placeholder="Enter Chess.com name"
-                onChangeText={newText => setText(newText)}
-                onSubmitEditing={() => showText()} />
+                onChangeText={newUsername => setUsername(newUsername)}
+                onSubmitEditing={() => showData()} />
             </View>
 
             <View>
-                <Button onPress={() => navigation.navigate('Data')}/>
+                <Button text="Show Stats" onPress={() => navigation.navigate('Data')}/>
             </View>
         </View>
     );

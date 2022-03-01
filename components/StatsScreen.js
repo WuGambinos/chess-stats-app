@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Button from './Button';
 
 const Data = (props) => {
     return (
@@ -12,7 +13,8 @@ const Data = (props) => {
 }
 
 
-const StatsScreen = () => {
+const StatsScreen = ({navigation}) => {
+
 
     return (
         <View>
@@ -27,6 +29,9 @@ const StatsScreen = () => {
 
             <Data tc="Rapid:">    
             </Data>
+
+            <Button text="Home"
+             onPress={() => navigation.navigate('HomeScreen')} />
         </View>
 
     )
